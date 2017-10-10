@@ -33,4 +33,7 @@ class DictionaryProxyTests: XCTestCase {
         }
     }
     
+    func test(){
+        XCTAssert(true)
+    }
 }

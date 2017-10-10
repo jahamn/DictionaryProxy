@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9684776D1F8C6246009F95E5 /* DictionaryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A8DBB1F8C5FF50058C150 /* DictionaryProxy.swift */; };
+		968477721F8C632E009F95E5 /* DictionaryProxyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A8DAF1F8C5F910058C150 /* DictionaryProxyTests.swift */; };
+		968477731F8C634E009F95E5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 968477701F8C62FB009F95E5 /* XCTest.framework */; };
 		969A8DAB1F8C5F900058C150 /* DictionaryProxy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 969A8DA11F8C5F900058C150 /* DictionaryProxy.framework */; };
-		969A8DB01F8C5F910058C150 /* DictionaryProxyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A8DAF1F8C5F910058C150 /* DictionaryProxyTests.swift */; };
 		969A8DB21F8C5F910058C150 /* DictionaryProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 969A8DA41F8C5F900058C150 /* DictionaryProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		969A8DBC1F8C5FF50058C150 /* DictionaryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A8DBB1F8C5FF50058C150 /* DictionaryProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +26,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		968477701F8C62FB009F95E5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		969A8DA11F8C5F900058C150 /* DictionaryProxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DictionaryProxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		969A8DA41F8C5F900058C150 /* DictionaryProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryProxy.h; sourceTree = "<group>"; };
 		969A8DA51F8C5F900058C150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		969A8DAA1F8C5F900058C150 /* DictionaryProxyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DictionaryProxyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		969A8DAF1F8C5F910058C150 /* DictionaryProxyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryProxyTests.swift; sourceTree = "<group>"; };
 		969A8DB11F8C5F910058C150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		969A8DBB1F8C5FF50058C150 /* DictionaryProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,18 +49,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				969A8DAB1F8C5F900058C150 /* DictionaryProxy.framework in Frameworks */,
+				968477731F8C634E009F95E5 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9684776F1F8C62FB009F95E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				968477701F8C62FB009F95E5 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		969A8D971F8C5F900058C150 = {
 			isa = PBXGroup;
 			children = (
 				969A8DA31F8C5F900058C150 /* DictionaryProxy */,
 				969A8DAE1F8C5F900058C150 /* DictionaryProxyTests */,
 				969A8DA21F8C5F900058C150 /* Products */,
+				9684776F1F8C62FB009F95E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +86,7 @@
 		969A8DA31F8C5F900058C150 /* DictionaryProxy */ = {
 			isa = PBXGroup;
 			children = (
+				969A8DBB1F8C5FF50058C150 /* DictionaryProxy.swift */,
 				969A8DA41F8C5F900058C150 /* DictionaryProxy.h */,
 				969A8DA51F8C5F900058C150 /* Info.plist */,
 			);
@@ -148,6 +164,7 @@
 				TargetAttributes = {
 					969A8DA01F8C5F900058C150 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					969A8DA91F8C5F900058C150 = {
@@ -196,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969A8DBC1F8C5FF50058C150 /* DictionaryProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +221,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				969A8DB01F8C5F910058C150 /* DictionaryProxyTests.swift in Sources */,
+				968477721F8C632E009F95E5 /* DictionaryProxyTests.swift in Sources */,
+				9684776D1F8C6246009F95E5 /* DictionaryProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +352,7 @@
 		969A8DB61F8C5F910058C150 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -347,6 +367,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanemobiledevelopment.DictionaryProxy;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -354,6 +375,7 @@
 		969A8DB71F8C5F910058C150 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -375,6 +397,7 @@
 		969A8DB91F8C5F910058C150 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DictionaryProxyTests/Info.plist;
@@ -388,6 +411,7 @@
 		969A8DBA1F8C5F910058C150 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = DictionaryProxyTests/Info.plist;
