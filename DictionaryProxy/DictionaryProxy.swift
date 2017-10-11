@@ -8,96 +8,96 @@
 
 import Foundation
 
-class DictionaryProxy : Sequence {
+public struct DictionaryProxy : Sequence {
     let raw: Any
-    init(body: Any){
-        raw = body
+    public init(_ raw: Any){
+        self.raw = raw
     }
     
-    subscript(index: String) -> DictionaryProxy {
+    public subscript(index: String) -> DictionaryProxy {
         guard let dict = raw as? Dictionary<String, Any>,
             let value = dict[index] else {
-                return DictionaryProxy(body: NSNull())
+                return DictionaryProxy(NSNull())
         }
-        return DictionaryProxy(body: value)
+        return DictionaryProxy(value)
     }
     
-    func decode<T: Any>() -> T!{
+    public func decode<T: Any>() -> T!{
         guard let value = raw as? T else {
             return nil
         }
         return value
     }
     
-    var number: NSNumber! {
+    public var number: NSNumber! {
         return decode()
     }
     
-    var string: NSString! {
+    public var string: NSString! {
         return decode()
     }
     
-    var date: NSDate! {
+    public var date: NSDate! {
         return decode()
     }
     
-    var dictionary: [String: Any]! {
+    public var dictionary: [String: Any]! {
         return decode()
     }
     
-    var list: DictProxyList {
-        return DictProxyList(body: raw)
+    public var list: DictionaryProxyList {
+        return DictionaryProxyList(raw)
     }
     
-    class Iterator : IteratorProtocol {
+    public class Iterator : IteratorProtocol {
         var iter: DictionaryIterator<String, Any>?
         init(_ item: DictionaryProxy){
             iter = item.dictionary?.makeIterator()
         }
-        func next()->(String,DictionaryProxy)?{
+        public func next()->(String,DictionaryProxy)?{
             if iter != nil {
                 if let (key, value) = iter!.next(){
-                    return (key, DictionaryProxy(body: value))
+                    return (key, DictionaryProxy(value))
                 }
             }
             return nil
         }
     }
     
-    func makeIterator() -> DictionaryProxy.Iterator {
+    public func makeIterator() -> DictionaryProxy.Iterator {
         return Iterator(self)
     }
 }
 
-class DictProxyList : Sequence {
+public struct DictionaryProxyList : Sequence {
     let raw: Any
-    init(body: Any){
-        raw = body
+    init(_ raw: Any){
+        self.raw = raw
     }
     
-    subscript(index: Int) -> DictionaryProxy {
+    public subscript(index: Int) -> DictionaryProxy {
         guard let array = raw as? [Any], array.count >= index else {
-            return DictionaryProxy(body: NSNull())
+            return DictionaryProxy(NSNull())
         }
         
         let value = array[index]
-        return DictionaryProxy(body: value)
+        return DictionaryProxy(value)
     }
     
-    var count: Int {
+    public var count: Int {
         guard let array = raw as? [Any] else {
             return 0
         }
         return array.count
     }
     
-    class Iterator : IteratorProtocol {
+    public class Iterator : IteratorProtocol {
         var index = 0
-        let list: DictProxyList
-        init(list: DictProxyList){
+        let list: DictionaryProxyList
+        init(list: DictionaryProxyList){
             self.list = list
         }
-        func next() -> DictionaryProxy? {
+        public func next() -> DictionaryProxy? {
             defer {
                 index += 1
             }
@@ -109,7 +109,7 @@ class DictProxyList : Sequence {
         }
     }
     
-    func makeIterator() -> DictProxyList.Iterator {
+    public func makeIterator() -> DictionaryProxyList.Iterator {
         return Iterator(list: self)
     }
 }
